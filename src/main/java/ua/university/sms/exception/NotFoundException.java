@@ -1,1 +1,1 @@
-package ua.university.sms.exception; public class NotFoundException extends RuntimeException{public NotFoundException(String m){super(m);}}
+package ua.university.sms.exception; public class NotFoundException extends RuntimeException{public NotFoundException(String message){super(message);}}

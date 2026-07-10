@@ -1,86 +1,37 @@
-# University Management REST API
+# University Management API
 
-Фінальний проєкт: RESTful API системи управління університетом на Spring Boot 3.
+RESTful API для управління університетом: студенти, викладачі, курси, зарахування, оплати, оцінки, GPA та фільтрація.
 
-## Стек
-- Java 21
-- Spring Boot 3
-- Spring Web
-- Spring Data JPA
-- PostgreSQL
-- Swagger / OpenAPI
-- JUnit, Mockito, Spring Test
+## Stack
+Java 21, Spring Boot 3, Spring Web, Spring Data JPA, PostgreSQL, Flyway, Swagger/OpenAPI, JUnit.
 
-## Модулі
-- Students CRUD
-- Teachers CRUD
-- Courses CRUD
-- Enrollments CRUD
-- Оплата курсів
-- Виставлення оцінок
-- GPA / average grade
-- Фільтрація і пошук
-- Глобальна обробка помилок
-- DTO для API
-
-## Запуск PostgreSQL
+## Run
 ```bash
 docker compose up -d
-```
-
-## Запуск застосунку
-```bash
 mvn spring-boot:run
 ```
 
-Swagger UI:
+Swagger UI: `http://localhost:8080/swagger-ui.html`
 
-```text
-http://localhost:8080/swagger-ui.html
-```
-
-## Основні endpoints
-
-### Students
-- `POST /api/students`
-- `GET /api/students`
-- `GET /api/students/{id}`
-- `PUT /api/students/{id}`
-- `DELETE /api/students/{id}`
+## Main endpoints
+- `GET/POST /api/students`
+- `GET/PUT/DELETE /api/students/{id}`
 - `GET /api/students?status=ACTIVE`
 - `GET /api/students?year=2`
-- `GET /api/students?search=ivan`
+- `GET /api/students?search=name-or-email`
 - `GET /api/students/unpaid`
 - `GET /api/students/top?limit=5`
-
-### Teachers
-- `POST /api/teachers`
-- `GET /api/teachers`
-- `GET /api/teachers/{id}`
-- `PUT /api/teachers/{id}`
-- `DELETE /api/teachers/{id}`
-
-### Courses
-- `POST /api/courses`
-- `GET /api/courses`
-- `GET /api/courses/{id}`
-- `PUT /api/courses/{id}`
-- `DELETE /api/courses/{id}`
+- `GET/POST /api/teachers`
+- `GET/POST /api/courses`
 - `GET /api/courses?teacherId=1`
 - `GET /api/courses?credits=5`
-
-### Enrollments
-- `POST /api/enrollments`
-- `GET /api/enrollments`
-- `GET /api/enrollments/{id}`
-- `PUT /api/enrollments/{id}`
+- `GET/POST /api/enrollments`
 - `PATCH /api/enrollments/{id}/payment`
 - `PATCH /api/enrollments/{id}/grade`
 - `GET /api/enrollments/average/course/{courseId}`
 - `GET /api/enrollments/average/semester/{semester}`
-- `DELETE /api/enrollments/{id}`
 
-## Тести
+## Tests
 ```bash
 mvn test
 ```
